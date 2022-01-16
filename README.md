@@ -1,1 +1,1 @@
-Empty angular and spring app in one project
+Angular and spring app in one project example
