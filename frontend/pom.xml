@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+        <artifactId>mem</artifactId>
+        <groupId>mem</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <packaging>pom</packaging>
+    <artifactId>frontend</artifactId>
+
+    <properties>
+      <node-version>v10.16.0</node-version>
+      <npm-version>6.9.0</npm-version>
+    </properties>
+
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>1.6.0</version>
+          <executions>
+            <execution>
+              <phase>validate</phase>
+              <goals>
+                <goal>exec</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <executable>ng</executable>
+            <workingDirectory>src/main/resources/frontend/angular-app</workingDirectory>
+            <arguments>
+              <argument>build</argument>
+              <argument>--aot</argument>
+              <argument>--base-href="."</argument>
+            </arguments>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+
+</project>
